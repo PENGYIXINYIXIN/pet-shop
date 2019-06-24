@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="pet-shop" />
         <module name="Record-time" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="pet-shop" target="1.8" />
       <module name="Record-time" target="1.8" />
     </bytecodeTargetLevel>
   </component>
