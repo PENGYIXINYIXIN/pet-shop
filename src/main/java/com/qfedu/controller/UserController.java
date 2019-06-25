@@ -9,6 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by Administrator on 2019/6/21 0021.
  */
@@ -22,6 +26,8 @@ public class UserController {
 
     @RequestMapping("login.do")
     public JsonBean findUser(User user){
+//        resp.setHeader("Access-Control-Allow-Origin", "*");
+
         JsonBean json=userService.findUser(user);
          return json;
     }

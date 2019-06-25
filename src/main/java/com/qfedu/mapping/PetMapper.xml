@@ -14,14 +14,28 @@
         <result column="typename" property="typename"></result>
     </resultMap>
     <select id="findPet" resultMap="petMap">
-      select * from t_pet p LEFT JOIN t_type t on p.type = t.id
+       SELECT p.*,t.*,s.* from t_pet p,t_type t,t_shop s where p.type = t.typeid and p.shop=s.shopid;
     </select>
 
     <select id="findPetById" parameterType="int" resultMap="petMap">
-       select * from t_pet p LEFT JOIN t_type t on p.type = t.id where p.id = #{id}
+        SELECT p.*,t.*,s.* from t_pet p,t_type t,t_shop s where p.type = t.typeid and p.shop=s.shopid and p.id = #{id}
     </select>
 
     <select id="findAroundPet" resultMap="petMap">
         select * from t_pet where t_pet.city  LIKE '%河南%'
+    </select>
+    <select id="findPetByPrice" parameterType="java.util.Map" resultMap="petMap">
+        select * from t_pet
+        <where>
+            <if test="minprice=='0' and maxprice!='0'">
+                t_pet.price &lt;= #{maxprice}
+            </if>
+            <if test="!minprice.equals('0') and !maxprice.equals('0')">
+                and t_pet.price &gt;= #{minprice} and t_pet.price &lt;= #{maxprice}
+            </if>
+            <if test="!minprice.equals('0') and maxprice.equals('0')">
+                and t_pet.price &gt;= #{minprice}
+            </if>
+        </where>
     </select>
 </mapper>

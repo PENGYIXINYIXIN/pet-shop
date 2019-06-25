@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by PENGYIXIN on 2019/6/22.
@@ -33,5 +34,10 @@ public class PetServiceImpl implements PetService {
     @Override
     public List<Pet> findAroundPet() {
         return petDao.findAroundPet();
+    }
+
+    @Override
+    public List<Pet> findPetByPrice(Map map) {
+        return petDao.findPetByPrice(map);
     }
 }

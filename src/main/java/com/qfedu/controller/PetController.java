@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by PENGYIXIN on 2019/6/22.
@@ -43,6 +45,16 @@ public class PetController {
     @RequestMapping("aroundpet.do")
     public JsonBean findAroundPet(){
         List<Pet> petList=petService.findAroundPet();
+        System.out.println(petList);
         return  new JsonBean(1,petList);
+    }
+    //附近中，根据价格查询
+    @RequestMapping("pricepet.do")
+    public JsonBean findPetByPrice(String minprice,String maxprice){
+        Map<String,Object> map=new HashMap<>();
+        map.put("minprice",minprice);
+        map.put("maxprice",maxprice);
+        List<Pet> petList=petService.findPetByPrice(map);
+        return new JsonBean(1,petList);
     }
 }
