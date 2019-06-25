@@ -29,4 +29,9 @@ public class PetServiceImpl implements PetService {
         Pet pet = petDao.findPetById(id);
         return pet;
     }
+
+    @Override
+    public List<Pet> findAroundPet() {
+        return petDao.findAroundPet();
+    }
 }

@@ -39,4 +39,10 @@ public class PetController {
         System.out.println("查丶结果"+ pet);
         return new JsonBean(1,pet);
     }
+    //首页附近，根据地址查询宠物信息
+    @RequestMapping("aroundpet.do")
+    public JsonBean findAroundPet(){
+        List<Pet> petList=petService.findAroundPet();
+        return  new JsonBean(1,petList);
+    }
 }

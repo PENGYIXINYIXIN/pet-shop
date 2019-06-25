@@ -11,4 +11,6 @@ public interface  PetDao {
     List<Pet> findPet();
 
     Pet  findPetById(Integer id);
+
+    List<Pet> findAroundPet();
 }

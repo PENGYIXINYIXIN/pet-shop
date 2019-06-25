@@ -11,4 +11,6 @@ public interface PetService {
     List<Pet> findPet();
 
     Pet findPetById(Integer id);
+
+    List<Pet> findAroundPet();
 }

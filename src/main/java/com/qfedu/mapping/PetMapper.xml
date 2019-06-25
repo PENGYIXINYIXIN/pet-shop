@@ -20,4 +20,8 @@
     <select id="findPetById" parameterType="int" resultMap="petMap">
        select * from t_pet p LEFT JOIN t_type t on p.type = t.id where p.id = #{id}
     </select>
+
+    <select id="findAroundPet" resultMap="petMap">
+        select * from t_pet where t_pet.city  LIKE '%河南%'
+    </select>
 </mapper>
