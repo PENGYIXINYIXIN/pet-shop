@@ -21,8 +21,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("login.do")
-    public JsonBean findUser(String phone, String password ){
-        userService.findUser(phone,password);
-         return new JsonBean(1,null);
+    public JsonBean findUser(User user){
+        JsonBean json=userService.findUser(user);
+         return json;
     }
 }

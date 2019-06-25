@@ -7,4 +7,6 @@ import com.qfedu.pojo.User;
  */
 public interface UserDao {
     User findByPhone(String phone);
+
+    User findByPassword(User user);
 }
